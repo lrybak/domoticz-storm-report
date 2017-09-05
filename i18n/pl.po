@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-08-29 20:54+CEST\n"
+"PO-Revision-Date: 2017-08-29 21:06+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.0.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: domoticz-storm-report/plugin.py:81
+msgid "onStart called"
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:89
+msgid "Creating devices..."
+msgstr "Tworzenie urządzeń..."
+
+#: domoticz-storm-report/plugin.py:93 domoticz-storm-report/plugin.py:174
+msgid "Frost alert"
+msgstr "Ostrzeżenie o mrozie"
+
+#: domoticz-storm-report/plugin.py:94
+msgid "Heat alert"
+msgstr "Ostrzeżenie o upale"
+
+#: domoticz-storm-report/plugin.py:95
+msgid "Wind alert"
+msgstr "Ostrzeżenie o wietrze"
+
+#: domoticz-storm-report/plugin.py:96
+msgid "Rain/snowfall alert"
+msgstr "Ostrzeżenie o deszczu/śniegu"
+
+#: domoticz-storm-report/plugin.py:97
+msgid "Storm alert"
+msgstr "Ostrzeżenie przed burzą"
+
+#: domoticz-storm-report/plugin.py:98
+msgid "Cyclone alert"
+msgstr "Ostrzeżenie przed trąbą pow."
+
+#: domoticz-storm-report/plugin.py:100
+msgid "Lightning alert"
+msgstr "Ostrzeżenie o wyładowaniach"
+
+#: domoticz-storm-report/plugin.py:101
+msgid "Lightnings"
+msgstr "Wyładowania"
+
+#: domoticz-storm-report/plugin.py:103 domoticz-storm-report/plugin.py:105
+msgid "Nearest lightning"
+msgstr "Najbliższe wyładowanie"
+
+#: domoticz-storm-report/plugin.py:107
+msgid "Period of data"
+msgstr "Okres czasu"
+
+#: domoticz-storm-report/plugin.py:108
+msgid "min"
+msgstr "min"
+
+#: domoticz-storm-report/plugin.py:109
+msgid "Devices created."
+msgstr "Urządzenia utworzone."
+
+#: domoticz-storm-report/plugin.py:112
+msgid "Fetching data every %(time)d min."
+msgstr "Pobieranie danych co %(time)d min."
+
+#: domoticz-storm-report/plugin.py:117
+msgid "onStop called"
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:120
+msgid "onConnect called"
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:123
+msgid "onMessage called"
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:126
+msgid "onCommand called for Unit "
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:129
+msgid "Notification: "
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:132
+msgid "onDisconnect called"
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:135
+msgid "onHeartbeat called"
+msgstr ""
+
+#: domoticz-storm-report/plugin.py:146
+msgid "City not validated"
+msgstr "Niepoprawne miasto, popraw swoje zapytanie"
+
+#: domoticz-storm-report/plugin.py:149
+msgid "Looking for city: %(city)s"
+msgstr "Szukam miasta: %(city)s"
+
+#: domoticz-storm-report/plugin.py:156
+msgid "City [%(city)s] not found."
+msgstr "Miasto [%(city)s] nie zostało znalezione."
+
+#: domoticz-storm-report/plugin.py:157
+msgid "Please check your plugin configuration."
+msgstr "Sprawdź konfigurację pluginu."
+
+#: domoticz-storm-report/plugin.py:159
+msgid "City found: [%(city)s] cords are (%(cords_y)s, %(cords_x)s)."
+msgstr "Miasto znalezione: [%(city)s], koordynaty  (%(cords_y)s, %(cords_x)s)."
+
+#: domoticz-storm-report/plugin.py:163
+msgid "Fetching weather alerts for [%(city)s]"
+msgstr "Pobieram ostrzeżenia pogodowe dla miasta [%(city)s]"
+
+#: domoticz-storm-report/plugin.py:172 domoticz-storm-report/plugin.py:184
+#: domoticz-storm-report/plugin.py:195 domoticz-storm-report/plugin.py:206
+#: domoticz-storm-report/plugin.py:217 domoticz-storm-report/plugin.py:229
+msgid "No warning"
+msgstr "Brak ostrzeżeń"
+
+#: domoticz-storm-report/plugin.py:175
+msgid ""
+"Frost warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s"
+msgstr ""
+"Ostrzeżenie o mrozie (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do "
+"%(valid_to)s"
+
+#: domoticz-storm-report/plugin.py:186
+msgid ""
+"Snow/rainfall warning (%(level)d degree)<br>Valid from %(valid_from)s to "
+"%(valid_to)s"
+msgstr ""
+"Ostrzeżenie o opadach deszczu/śniegu (%(level)d poziom)<br>Obowiązuje od "
+"%(valid_from)s do %(valid_to)s"
+
+#: domoticz-storm-report/plugin.py:197
+msgid ""
+"Storm warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s"
+msgstr ""
+"Ostrzeżenie o burzy  (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do "
+"%(valid_to)s"
+
+#: domoticz-storm-report/plugin.py:208
+msgid ""
+"Cyclone warning (%(level)d degree)<br>Valid from %(valid_from)s to "
+"%(valid_to)s"
+msgstr ""
+"Ostrzeżenieo trąbie powietrznej (%(level)d poziom)<br>Obowiązuje od "
+"%(valid_from)s do %(valid_to)s"
+
+#: domoticz-storm-report/plugin.py:219
+msgid ""
+"Wind warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s"
+msgstr ""
+"Ostrzeżenie o wietrze (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do "
+"%(valid_to)s"
+
+#: domoticz-storm-report/plugin.py:231
+msgid ""
+"Heat warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s"
+msgstr ""
+"Ostrzeżenie o upale (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do "
+"%(valid_to)s"
+
+#: domoticz-storm-report/plugin.py:235
+msgid ""
+"Number of lightnings (last %(lightning_period)d min): %(lightning_qty)d<br/"
+">\n"
+"        Nearest: %(lightning_distance).2f km (%(lightning_direction)s)<br/>\n"
+"        Lookup radius: %(lightning_lookup_range)d km"
+msgstr ""
+"Liczba wyładowań (ostatnie %(lightning_period)d min): %(lightning_qty)d<br/"
+">\n"
+"        Najbliższe: %(lightning_distance).2f km (%(lightning_direction)s)<br/"
+">\n"
+"        Promień pomiaru: %(lightning_lookup_range)d km"
+
+#: domoticz-storm-report/plugin.py:238
+msgid ""
+"No lightning registered (last %(lightning_period)d min)<br/>\n"
+"        Lookup radius: %(lightning_lookup_range)d km"
+msgstr ""
+"Brak zarejestrowanych wyładowań (ostatnie %(lightning_period)d min)<br/>\n"
+"        Promień pomiaru: %(lightning_lookup_range)d km"
+
+#: domoticz-storm-report/plugin.py:242
+msgid "North"
+msgstr "Północ"
+
+#: domoticz-storm-report/plugin.py:243
+msgid "North-west"
+msgstr "Północny-zachód"
+
+#: domoticz-storm-report/plugin.py:244
+msgid "North-east"
+msgstr "Północny-wschód"
+
+#: domoticz-storm-report/plugin.py:245
+msgid "South"
+msgstr "Południe"
+
+#: domoticz-storm-report/plugin.py:246
+msgid "South-west"
+msgstr "Południowy-zachód"
+
+#: domoticz-storm-report/plugin.py:247
+msgid "South-east"
+msgstr "Południowy-wschód"
+
+#: domoticz-storm-report/plugin.py:248
+msgid "East"
+msgstr "Wschód"
+
+#: domoticz-storm-report/plugin.py:249
+msgid "West"
+msgstr "Zachód"
+
+#: domoticz-storm-report/plugin.py:253
+msgid "Looking up for storm information near [%(city)s]"
+msgstr "Szukam informacji o burzach w okolicy miasta [%(city)s]"
+
+#: domoticz-storm-report/plugin.py:274
+msgid "No lightnings"
+msgstr "Brak wyładowań"
+
+#: domoticz-storm-report/plugin.py:282
+msgid "Fetch data complete"
+msgstr "Pobrano dane"
+
+#: domoticz-storm-report/plugin.py:308
+msgid "Looking up city: [%(city)s]"
+msgstr "Szukam miasta: [%(city)s]"
+
+#: domoticz-storm-report/plugin.py:311
+msgid "The city name [%(city)s] not found."
+msgstr "Miasto [%(city)s] nie zostało znalezione."
+
+#: domoticz-storm-report/plugin.py:314
+msgid "City found: [%(city)s]"
+msgstr "Miasto znalezione: [%(city)s]"
+
+#: domoticz-storm-report/plugin.py:319
+msgid ""
+"Best match: [%(city)s], however you can narrow your query to get more "
+"precise weather prediction:"
+msgstr ""
+"Najlepiej dopasowane: [%(city)s], popraw swoje zapytanie aby otrzymać "
+"bardziej szczegółowe dane pogodowe:"
+
+#: domoticz-storm-report/plugin.py:321 domoticz-storm-report/plugin.py:328
+msgid "The possible choices are: "
+msgstr "Dostępne opcje: "
+
+#: domoticz-storm-report/plugin.py:327
+msgid "The city name [%(city)s] is ambiguous, please narrow your query."
+msgstr "Nazwa miasta [%(city)s] jest niejednoznaczna, popraw swoje zapytanie."
+
+#: domoticz-storm-report/plugin.py:390
+msgid "Device=%(device_unit)d has been updated."
+msgstr "Urządzenie device=%(device_unit)d zostało uaktualnione."
+
+#: domoticz-storm-report/plugin.py:392
+msgid "No such Device=%(device_unit)d."
+msgstr "Nie ma takiego urządzenia Device=%(device_unit)d."
+
+#~ msgid "Distance to nearest lightning"
+#~ msgstr "Odległość do najbliższego wyładowania"
+
+#~ msgid "None"
+#~ msgstr "Brak"
+
+#~ msgid "Check if device=%(device_unit)d has to be updated..."
+#~ msgstr ""
+#~ "Sprawdzam czy urządzenie device=%(device_unit)d powinno być "
+#~ "uaktualnione..."
+
+#~ msgid "The possible entries are: "
+#~ msgstr "Dostępne opcje: "
+
+#~ msgid "Updating device=%(device_unit)d"
+#~ msgstr "Uaktualniam urządzenie device=%(device_unit)d"
