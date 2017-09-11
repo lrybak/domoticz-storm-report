@@ -9,8 +9,8 @@ Plugin is using suds SOAP Python library. suds library are already embeded as gi
 * Register at https://burze.dzis.net/ and ask author for API key https://burze.dzis.net/?page=kontakt
 * Get plugin data into DOMOTICZ/plugins directory (remember to fetch it recursivelly to get all the dependencies)
 ```
-	cd YOUR_DOMOTICZ_PATH/plugins
-	git clone --recursive https://github.com/lrybak/domoticz-storm-report
+cd YOUR_DOMOTICZ_PATH/plugins
+git clone --recursive https://github.com/lrybak/domoticz-storm-report
 ```
 * Restart Domoticz
 * Go to Setup > Hardware and create new Hardware with type: domoticz-storm-report
