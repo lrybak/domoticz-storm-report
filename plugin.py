@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
 # A Python plugin for Domoticz to access burze.dzis.net API for weather/storm data
 #
 # Author: fisher
+#
+#
+# v0.1.0 - initial version
+# v0.1.1 - removed gettext based translations - it caused plugin instability
 #
 """
 <plugin key="domoticz-storm-report" name="domoticz-storm-report (burze.dzis.net)" author="fisher" version="0.1.0" wikilink="https://www.domoticz.com/wiki/Plugins/domoticz-storm-report.html" externallink="https://github.com/lrybak/domoticz-storm-report">
@@ -24,8 +29,6 @@
 import Domoticz
 import os
 import sys
-import gettext
-import locale
 import datetime
 
 if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
@@ -37,6 +40,184 @@ elif sys.platform.startswith('win32'):
 
 from suds.client import Client
 from suds import WebFault
+
+L10N = {
+    'pl': {
+        "Creating devices...":
+            "Tworzenie urządzeń...",
+
+        "Frost alert":
+            "Ostrzeżenie o mrozie",
+
+        "Heat alert":
+            "Ostrzeżenie o upale",
+
+        "Wind alert":
+            "Ostrzeżenie o wietrze",
+
+        "Rain/snowfall alert":
+            "Ostrzeżenie o deszczu/śniegu",
+
+        "Storm alert":
+            "Ostrzeżenie przed burzą",
+
+        "Cyclone alert":
+            "Ostrzeżenie przed trąbą pow.",
+
+        "Lightning alert":
+            "Ostrzeżenie o wyładowaniach",
+
+        "Lightnings":
+            "Wyładowania",
+
+        "Nearest lightning":
+            "Najbliższe wyładowanie",
+
+        "Period of data":
+            "Okres czasu",
+
+        "min":
+            "min",
+
+        "Devices created.":
+            "Urządzenia utworzone.",
+
+        "Fetching data every %(time)d min.":
+            "Pobieranie danych co %(time)d min.",
+
+        "City not validated":
+            "Niepoprawne miasto, popraw swoje zapytanie",
+
+        "Looking for city: %(city)s":
+            "Szukam miasta: %(city)s",
+
+        "City [%(city)s] not found.":
+            "Miasto [%(city)s] nie zostało znalezione.",
+
+        "Please check your plugin configuration.":
+            "Sprawdź konfigurację pluginu.",
+
+        "City found: [%(city)s] cords are (%(cords_y)s, %(cords_x)s).":
+            "Miasto znalezione: [%(city)s], koordynaty  (%(cords_y)s, %(cords_x)s).",
+
+        "Fetching weather alerts for [%(city)s]":
+            "Pobieram ostrzeżenia pogodowe dla miasta [%(city)s]",
+
+        "No warning":
+            "Brak ostrzeżeń",
+
+        "Frost warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s":
+            "Ostrzeżenie o mrozie (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do %(valid_to)s",
+
+        "Snow/rainfall warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s":
+            "Ostrzeżenie o opadach deszczu/śniegu (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do %(valid_to)s",
+
+        "Storm warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s":
+            "Ostrzeżenie o burzy  (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do %(valid_to)s",
+
+        "Cyclone warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s":
+            "Ostrzeżenieo trąbie powietrznej (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do %(valid_to)s",
+
+        "Wind warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s":
+            "Ostrzeżenie o wietrze (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do %(valid_to)s",
+
+        "Heat warning (%(level)d degree)<br>Valid from %(valid_from)s to %(valid_to)s":
+            "Ostrzeżenie o upale (%(level)d poziom)<br>Obowiązuje od %(valid_from)s do %(valid_to)s",
+
+        "Number of lightnings (last %(lightning_period)d min): %(lightning_qty)d<br/>\n"
+        "Nearest: %(lightning_distance).2f km (%(lightning_direction)s)<br/>\n"
+        "Lookup radius: %(lightning_lookup_range)d km":
+            "Liczba wyładowań (ostatnie %(lightning_period)d min): %(lightning_qty)d<br/>\n"
+            "Najbliższe: %(lightning_distance).2f km (%(lightning_direction)s)<br/>\n"
+            "Promień pomiaru: %(lightning_lookup_range)d km",
+
+        "No lightning registered (last %(lightning_period)d min)<br/>\n"
+        "Lookup radius: %(lightning_lookup_range)d km":
+            "Brak zarejestrowanych wyładowań (ostatnie %(lightning_period)d min)<br/>\n"
+            "Promień pomiaru: %(lightning_lookup_range)d km",
+
+        "North":
+            "Północ",
+
+        "North-west":
+            "Północny-zachód",
+
+        "North-east":
+            "Północny-wschód",
+
+        "South":
+            "Południe",
+
+        "South-west":
+            "Południowy-zachód",
+
+        "South-east":
+            "Południowy-wschód",
+
+        "East":
+            "Wschód",
+
+        "West":
+            "Zachód",
+
+        "Looking up for storm information near [%(city)s]":
+            "Szukam informacji o burzach w okolicy miasta [%(city)s]",
+
+        "No lightnings":
+            "Brak wyładowań",
+
+        "Fetch data complete":
+            "Pobrano dane",
+
+        "Looking up city: [%(city)s]":
+            "Szukam miasta: [%(city)s]",
+
+        "The city name [%(city)s] not found.":
+            "Miasto [%(city)s] nie zostało znalezione.",
+
+        "City found: [%(city)s]":
+            "Miasto znalezione: [%(city)s]",
+
+        "Best match: [%(city)s], however you can narrow your query to get more "
+        "precise weather prediction:":
+            "Najlepiej dopasowane: [%(city)s], popraw swoje zapytanie aby otrzymać "
+            "bardziej szczegółowe dane pogodowe:",
+
+        "The possible choices are: ":
+            "Dostępne opcje: ",
+
+        "The city name [%(city)s] is ambiguous, please narrow your query.":
+            "Nazwa miasta [%(city)s] jest niejednoznaczna, popraw swoje zapytanie.",
+
+        "Device=%(device_unit)d has been updated.":
+            "Urządzenie device=%(device_unit)d zostało uaktualnione.",
+
+        "No such Device=%(device_unit)d.":
+            "Nie ma takiego urządzenia Device=%(device_unit)d.",
+
+        "Distance to nearest lightning":
+            "Odległość do najbliższego wyładowania",
+
+        "None":
+            "Brak",
+
+        "Check if device=%(device_unit)d has to be updated...":
+            "Sprawdzam czy urządzenie device=%(device_unit)d powinno być uaktualnione...",
+
+        "The possible entries are: ":
+            "Dostępne opcje: ",
+
+        "Updating device=%(device_unit)d":
+            "Uaktualniam urządzenie device=%(device_unit)d",
+    },
+    'en': { }
+}
+
+def _(key):
+    try:
+        return L10N[Settings["Language"]][key]
+    except KeyError:
+        return key
 
 class BasePlugin:
     enabled = True
@@ -61,9 +242,6 @@ class BasePlugin:
         return
 
     def onStart(self):
-        init_localization()
-
-        # self.api_wsdl = Parameters["Mode1"]
         self.api_wsdl = "https://burze.dzis.net/soap.php?WSDL"
         self.api_key = Parameters["Mode2"]
         self.api_check_every = int(Parameters["Mode3"])
@@ -81,7 +259,7 @@ class BasePlugin:
 
         self.client = Client(url=self.api_wsdl)
 
-        Domoticz.Debug(_("onStart called"))
+        Domoticz.Debug("onStart called")
 
         self.city_validated = self.checkCity(self.api_city_to_lokup)
 
@@ -117,25 +295,25 @@ class BasePlugin:
         self.onHeartbeat(fetch=True)
 
     def onStop(self):
-        Domoticz.Log(_("onStop called"))
+        Domoticz.Log("onStop called")
 
     def onConnect(self, Status, Description):
-        Domoticz.Log(_("onConnect called"))
+        Domoticz.Log("onConnect called")
 
     def onMessage(self, Data, Status, Extra):
-        Domoticz.Log(_("onMessage called"))
+        Domoticz.Log("onMessage called")
 
     def onCommand(self, Unit, Command, Level, Hue):
-        Domoticz.Log(_("onCommand called for Unit ") + str(Unit) + ": Parameter '" + str(Command) + "', Level: " + str(Level))
+        Domoticz.Log("onCommand called for Unit " + str(Unit) + ": Parameter '" + str(Command) + "', Level: " + str(Level))
 
     def onNotification(self, Name, Subject, Text, Status, Priority, Sound, ImageFile):
-        Domoticz.Log(_("Notification: ") + Name + "," + Subject + "," + Text + "," + Status + "," + str(Priority) + "," + Sound + "," + ImageFile)
+        Domoticz.Log("Notification: " + Name + "," + Subject + "," + Text + "," + Status + "," + str(Priority) + "," + Sound + "," + ImageFile)
 
     def onDisconnect(self):
-        Domoticz.Log(_("onDisconnect called"))
+        Domoticz.Log("onDisconnect called")
 
     def onHeartbeat(self, fetch=False):
-        Domoticz.Debug(_("onHeartbeat called"))
+        Domoticz.Debug("onHeartbeat called")
 
         self.client = Client(url=self.api_wsdl)
 
@@ -417,21 +595,3 @@ def UpdateDevice(Unit, nValue, sValue):
         Domoticz.Debug(_("Device=%(device_unit)d has been updated.") % {'device_unit': Unit})
     except KeyError:
         Domoticz.Debug(_("No such Device=%(device_unit)d.") % {'device_unit': Unit})
-
-def init_localization():
-    '''prepare l10n'''
-
-    locale.setlocale(locale.LC_ALL, '') # use user's preferred locale
-    # take first two characters of country code
-    loc = locale.getlocale()
-    filename = os.path.dirname(os.path.realpath(__file__)) \
-               + "/i18n/%s.mo" % Settings["Language"]
-
-    try:
-        Domoticz.Debug("Opening message file %s for locale %s", filename, loc[0] )
-        trans = gettext.GNUTranslations(open( filename, "rb" ) )
-    except IOError:
-        Domoticz.Debug("Locale not found. Using default messages")
-        trans = gettext.NullTranslations()
-
-    trans.install()

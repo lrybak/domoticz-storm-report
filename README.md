@@ -21,6 +21,13 @@ git clone --recursive https://github.com/lrybak/domoticz-storm-report
 Plugin comunicates via Domoticz logs. Check logs for feedback about city availability, corectness of api key and so on. After first API lookup plugin will create all the devices
 You can add more city to lookup - create another plugin (hardware) instance
 
+## Update
+```
+cd YOUR_DOMOTICZ_PATH/plugins/domoticz-storm-report
+git pull
+```
+* Restart Domoticz
+
 ## Troubleshooting
 In case of issues, mostly plugin not visible on plugin list, check logs if plugin system is working correctly.
 See Domoticz wiki for resolution of most typical installation issues http://www.domoticz.com/wiki/Linux#Problems_locating_Python
