@@ -34,5 +34,4 @@ See Domoticz wiki for resolution of most typical installation issues http://www.
 
 ## Contribute
 Feel free to test and report issues or other improvements.
-Plugin uses gettext for translation, currently english and polish are available.
-If you want to add another language, use included messages.pot template and prepare translation
+If you want to add another language, contact me or prepare pull request with the required change.
